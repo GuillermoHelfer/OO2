@@ -1,0 +1,30 @@
+Patron Command (patron de comportamiento)
+
+Probleama: necesario desacoplar una accion del objeto que lo ejecuta y de los objetos
+sobre los cuales se aplica al accion.
+
+Intencion: Encapsular una accion como un objeto permitiendo parametrizar clientes con 
+diferentes acciones
+
+Ejemplos: encolar, pegar, compartir, guardar, registrarse, deshacer.
+(aplicacion de edicion de documentos)
+Caller: el que permite que el usuario seleccione el commnad (toolbox element)
+(con el receiver como trabajo);
+Command: mismo que el concreto
+Concrete Command: implementan el llamado a lo que se quiere hacer
+(suele contener un atributo estado que le permite realizar un rollback);
+Client:	aplicacion en si misma
+Receiver: documento
+
+Ejemplos reales: 
+- seguimiento de casos administrativos, medicos (sistemas basados en
+condicionales aplicables a objetos de dominio);
+- streaming de video (elementos visuales o cambios en formato y calidad...
+- sistemas P2P sincronizados como juegos multijugador y edicion concurrente de
+documentos como google docs, sheets, impress, etc);
+
+Consecuencias:
+- Se desacopla el objeto que invoca una operacion por el objeto que sabe implementarla
+- Los comandos son objetos.
+- Comandos pueden ser ensamblados con Composite.
+- nuevos comandos son faciles de agregar sin cambiar los objetos.

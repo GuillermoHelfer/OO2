@@ -1,0 +1,42 @@
+2.2 Juego
+public class Juego {
+	// ......
+	public void incrementar(Jugador j) {
+		j.puntuacion = j.puntuacion + 100;
+	}
+	public void decrementar(Jugador j) {
+		j.puntuacion = j.puntuacion - 50;
+	}
+}
+public class Jugador {
+	public String nombre;
+	public String apellido;
+	public int puntuacion = 0;
+}
+
+
+i) Envidia de Atributo y numero magico;
+ii) Move method incrementar y decrementar hacia Jugador. Replace magic number with constant
+iii)
+public class Juego {
+
+	private static final incremento = 100;
+	private static final decremento = 50;
+	// ......
+	public void incrementar(Jugador j) {
+		j.incrementarPuntuacion(this.incremento);
+	}
+	public void decrementar(Jugador j) {
+		j.decrementarPuntuacion(this.decremento);
+	}
+}
+public class Jugador {
+	public String nombre;
+	public String apellido;
+	public int puntuacion = 0;
+	
+	public double incrementar (int cantidad) {
+		j.puntuacion = j.puntuacion + cantidad;
+	}
+}
+

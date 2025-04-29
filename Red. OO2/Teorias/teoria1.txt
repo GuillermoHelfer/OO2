@@ -1,0 +1,33 @@
+2 formas de aprobacion:
+	a) cursada normal
+	
+	b) 	trabajo de promocion se accede mediante un examen sobre refactoring avanzado (18/09) -> no tienen que rendir los parciales
+		seguimiento cada 2 semanas del trabajo por parte de docentes/ayudantes
+		proyecto publico de git
+		un porotito para el curriculum git
+		nuevos patrones (facade y command)
+		los commit no tienen limite
+
+Refactoring: transformacion de codigo que preservan la funcionalidad/comportamiento
+
+Code Smell:	es un posible problema (no precisa solucion inmediata)
+
+Refactoring -> Patterns: primero se aplica un refactoring que prepara el sistema para aplicar un patron
+
+Synt. trees:
+	- Parsing
+	- Gramatica
+	- Abstract(AST)
+	- Concrete(CST)
+	
+Parser: string -> () -> comprendido dentro de las reglas del programa (CPLP)
+
+Refactoring es una transformacion de codigo mediante parsing y pretty print
+
+Semantica Denotacional: conjunto de reglas logicas que describe como un programa modifica su estado en memoria
+
+Antlr (web): herramienta que toma def. de gramaticas y geenera parsers a partir de esa gramatica
+				|_ parte de la funcionalidad la vamos a usar para el trabajo de promocion
+				|_ framework para implementar refactoring sobre querys sql
+				
+Se pueden detectar code smellls en los arboles de sintaxis.

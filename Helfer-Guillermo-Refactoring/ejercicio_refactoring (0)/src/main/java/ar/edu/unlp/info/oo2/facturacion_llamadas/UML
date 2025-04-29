@@ -1,0 +1,110 @@
+@startuml
+Class Empresa {
++Empresa()
++agregarNumeroTelefono(Stirng):boolean
++obtenerNumeroLibre():String
++registrarUsuarioJuridico(String,String):ClienteJuridico
++registrarUsuarioFisico(String,String):ClienteFisico
++registrarLlamadaNacional(Cliente,Cliente,int):LlamadaNacional
++registrarLlamadaInternacional(Cliente,Cliente,int):LlamadaInternacional
++calcularMontoTotalLlamadas(Cliente):double
++cantidadDeUsuarios():int
++existeUsuario(Cliente):boolean
++getGestorNumeros():GestorNumerosDisponibles
+}
+Empresa --> GestorNumerosDisponibles : guia 0..1
+Empresa --> Cliente : clientes 0..*
+
+Class GestorNumerosDisponibles{
+- lineas: SortedSet<String>
++GestorNumerosDisponibles()
++getLineas():SortedSet<String>
++obtenerNumeroLibre(): String
++cambiarTipoGeneradorUltimo():void
++cambiarTipoGeneradorPrimero():void
++cambiarTipoGeneradorRandom():void
++isRegistrado():boolean
+}
+GestorNumerosDisponibles --> Strategy : tipoGenerador 0..1
+
+Abstract Cliente {
+- nombre: String
+- numeroTelefono : String
+- descuento: double
++Cliente()
++ getNombre():String
+# setNombre():void
++ getNumeroTelefono():String
+# setNumeroTelefono():void
++ getDescuento():double
+# setDescuento():void
++ calcularMontoTotalLlamadas():double
+}
+Cliente --> Llamada : llamadas 0..*
+
+Class ClienteFisico extends Cliente{
+- dni : String
+- static descuento : double
++ClienteFisico()
++getDNI(): String
+- setDNI(String) : void
+}
+
+Class ClienteJuridico extends Cliente{
+- cuit : String
+- static descuento : double
++ClienteJuridicio()
++getCuit(): String
+- setCuit():void
+}
+
+Abstract Class Llamada {
+- origen : String
+- destino : String
+- duracion : int
+- costoSegundo : double
+- static IVA : double
+# Llamada()
++abstract calcularMontoLlamada(): double
+# calcularMontoLlamadaAux(): double
+- calcularPrecioConIva(): double
++getRemitente():String
++getDuracion(): int
++getCostoSegundo(): double
++getOrigen() : String
+# setCostoSegundo():void
+}
+
+Class LlamadaNacional extends Llamada{
++LlamadaNacional()
++calcularMontoLlamada():double
+}
+
+Class LlamadaInternacional extends Llamada{
+- adicional: double
++LlamadaInternacional()
++calcularMontoLlamada(): double
++getAdicional(): double
+- setAdicional(): double
+}
+
+Interface Strategy {
++obtenerNumeroLibre(SortedSet<String>): String
+}
+
+Class PrimeroStrategy implements Strategy{
++PrimeroStrategy()
++obtenerNumeroLibre(SortedSet<String>): String
+}
+
+Class UltimoStrategy implements Strategy{
++UltimotSrategy()
++obtenerNumeroLibre(SortedSet<String>): String
+}
+
+Class RandomStrategy implements Strategy{
++RandomStrategy()
++obtenerNumeroLibre(SortedSet<String>): String
+}
+
+@enduml

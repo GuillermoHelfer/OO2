@@ -1,0 +1,89 @@
+Ejercicio 6.1:
+	a) redundancia variable pisada, variable no utilizada
+	b.1) 	recorro el arbol hasta encontrar un stat:1
+			copio el valor del hijo mas izquierdo en una variable auxiliar o lista
+			sigo recorriendo el arbol hasta encontrar un stat:1 donde el hijo mas izquierdo sea el mismo que el valor copiado (variable sobreescrita)
+	b.2) 	recorro el arbol hasta encontrar un stat:1
+			copio el valor del hijo mas izquierdo en una variable auxiliar o lista
+			sigo recorriendo el arbol buscando que el valor guardado sea hijo de algun nodo EXPR, caso contrario no se uso la variable
+			
+Ejercicio 6.2:
+	a) variable no utilizada, parametro no utilizado
+	b.1) 	recorro el arbol hasta encontrar un stat:1
+			copio el valor del hijo mas izquierdo en una variable auxiliar o lista
+			sigo recorriendo el arbol buscando que el valor guardado sea hijo de algun nodo EXPR
+			caso contrario no se uso la variable
+	b.2)	Recorro el arbol hasta encontrar el nodo con expresión def
+			me guardo en una lista los valores de los ID que se encuentran entre parentesis.
+			recorro el arbol buscando que algun nodo de la lista auxiliar sea hijo de un nodo EXPR
+			si no es hijo de un expr entonces no se utiliza
+			
+Ejercicio 6.3:
+	a) parametro "y" sin utilizar
+	b.1) 	Recorro el arbol hasta encontrar el nodo con expresión def
+			me guardo en una lista los valores de los ID que se encuentran entre parentesis.
+			recorro el arbol buscando que algun nodo de la lista auxiliar sea hijo de un nodo EXPR
+			si no es hijo de un expr entonces no se utiliza
+			
+Ejercicio 6.4:
+	a) redundancia variable "a" pisada
+	b.1)	recorro el arbol hasta encontrar un stat:1
+			copio el valor del hijo mas izquierdo en una variable auxiliar o lista
+			sigo recorriendo el arbol hasta encontrar un stat:1 donde el hijo mas izquierdo sea el mismo que el valor copiado (variable sobreescrita)
+			
+Ejercicio 6.5:
+	a) redundancia en condicional
+	b.1)	recorro el arbol hasta encontrar un EXPR:12
+			sobre los ultimos 2 hijos EXPR, si los hijos de estos son identicos
+			entonces hay redundancia de condicional
+
+Ejercicio 6.6:
+	a) parametro sin utilizar
+	b.1) 	Recorro el arbol hasta encontrar el nodo con expresión def
+			me guardo en una lista los valores de los ID que se encuentran entre parentesis.
+			recorro el arbol buscando que algun nodo de la lista auxiliar sea hijo de un nodo EXPR
+			si no es hijo de un expr entonces no se utiliza
+
+Ejercicio 6.7:
+	a) logica reduntante
+	b.1)	recorro el arbol hasta encontrar un nodo EXPR:6
+			si el hijo derecho es un EXPR:6
+			entonces hay redundancia de logica
+			
+Ejercicio 6.8:
+	a) parametro sin utilizar
+	b.1) 	Recorro el arbol hasta encontrar el nodo con expresión def
+			me guardo en una lista los valores de los ID que se encuentran entre parentesis.
+			recorro el arbol buscando que algun nodo de la lista auxiliar sea hijo de un nodo EXPR
+			si no es hijo de un expr entonces no se utiliza
+			
+Ejercicio 6.9:
+	a) switch statement
+	b.1)	Recorro el arbol hasta encontrar el nodo def:1
+			me guardo los parametros que se encuentran entre los parentesis en una lista (en este caso "empleado")
+			sigo recorriendo el arbol hasta encontrar un stat:1 con hijo derecho EXPR:4, en el que el hijo mas derecho sea "class"
+			me guardo el valor del hijo izquierdo del anterior stat:1
+			recorro el resto del arbol buscando un EXPR:5 en el que su hijo izquierdo sea "clase"
+			si el hijo izquierdo de la func y es "equals"
+			entonces hay switch statement
+
+Ejercicio 6.10:
+	a) reinventando la rueda (for)
+	b.1) 	recorro el arbol hasta encontrar un stat:3
+			recorro los hijos de este guardandome la estructura en una variable aux1
+			recorro el arbol hasta el proximo stat:3
+			recorro los hijos de este guardandome la estructura en otra variable aux2
+			si al comparar las estructuras de las variables auxiliares estas son identicas
+			entonces hay una repeticion innecesaria que podria ser reemplazada por un for
+			repito el procedimiento del las stat:3 hasta identificar todos los afectados
+			
+Ejercicio 6.11:
+	a) envidia de atributos
+	b.1)	recorrer el arbol hasta encontrar el nodo def
+			guardarse los parametros que estan entre parentesis
+			recorrer el arbol hasta encontrar algun EXPR:4
+				si la estructura es de tipo parametro . ID
+				entonces hay envidia de atributos
+				
+Ejercicio 6.12:
+	a)
